@@ -1,8 +1,8 @@
 import React from 'react'
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
-import { withNavigation } from 'react-navigation';
+import { NavigationActions, withNavigation } from 'react-navigation';
 
-const Login = ({navigation}) => {
+const Signup = ({navigation}) => {
   return (
     <View style={styles.main_box}>
       <View style={styles.main_login_box}>
@@ -11,16 +11,19 @@ const Login = ({navigation}) => {
         <TextInput style={styles.input_box} />
         <Text style={styles.signup_text}>비밀번호</Text>
         <TextInput style={styles.input_box} />
+        <Text style={styles.signup_text}>비밀번호 확인</Text>
+        <TextInput style={styles.input_box} />
         <Text style={styles.login_button}>
-          로그인하기 
+          회원가입하기
         </Text>
         <View style={styles.isMember}>
-            <Text style={styles.isMember_text}>회원이 아니신가요? </Text>
-            <Text
-            onPress={() =>{
-              navigation.navigate('Signup')
-            }}
-            style={styles.isMember_button}>회원가입하기</Text>
+          <Text style={styles.isMember_text}>이미 계정이 있으신가요?</Text>
+          <Text 
+          onPress={() =>{
+            // this.props.navigation.navigate('Login')
+            navigation.navigate('Login')
+          }}
+          style={styles.isMember_button}>로그인하기</Text>
         </View>
       </View>
     </View>
@@ -92,4 +95,4 @@ const styles = StyleSheet.create({
     }
   });
 
-export default withNavigation(Login)
+export default withNavigation(Signup)
