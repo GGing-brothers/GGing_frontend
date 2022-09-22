@@ -11,7 +11,12 @@ const Login = ({navigation}) => {
         <TextInput style={styles.input_box} />
         <Text style={styles.signup_text}>비밀번호</Text>
         <TextInput style={styles.input_box} />
-        <Text style={styles.login_button}>
+        <Text 
+          style={styles.login_button}
+          onPress={() =>{
+            navigation.navigate('Main')
+          }}
+        >
           로그인하기 
         </Text>
         <View style={styles.isMember}>
@@ -36,6 +41,7 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
+      marginLeft: '8%',
     }, 
     main_login_box: {
       width: '100%',
@@ -47,8 +53,8 @@ const styles = StyleSheet.create({
     },
     main_logo: {
         position: 'absolute',
-        left: '32%',
-        top: '20%',
+        left: '35%',
+        top: '15%',
         fontSize: '30px',
         fontWeight: 'bold',
     },

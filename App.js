@@ -5,6 +5,7 @@ import LoginScreen from './components/Login';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SignupScreen from './components/Signup';
+import MainScreen from './components/Main';
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -13,6 +14,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="회원가입">
         <Stack.Screen name="Signup" component={SignupScreen}/>
         <Stack.Screen name="Login" component={LoginScreen}/>
+        <Stack.Screen name="Main" component={MainScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,19 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import { NavigationActions, withNavigation } from 'react-navigation';
 
 const Signup = ({navigation}) => {
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <View style={styles.main_box}>
       <View style={styles.main_login_box}>
         <Text style={styles.main_logo}>GWH</Text>
         <Text style={styles.login_text}>아이디</Text>
-        <TextInput style={styles.input_box} />
+        <TextInput 
+          onChange={(e) => {
+            setId(e.target.valueOf(e))
+          }} 
+          style={styles.input_box} 
+        />
         <Text style={styles.signup_text}>비밀번호</Text>
-        <TextInput style={styles.input_box} />
+        <TextInput
+        onChange={(e) => {
+          setPassword(e.target.valueOf(e))
+        }} 
+          style={styles.input_box} 
+        />
         <Text style={styles.signup_text}>비밀번호 확인</Text>
         <TextInput style={styles.input_box} />
-        <Text style={styles.login_button}>
+        <Text 
+          style={styles.login_button}
+          onPress={() => {
+            navigation.navigate('Login')
+          }}
+        >
           회원가입하기
         </Text>
         <View style={styles.isMember}>
@@ -35,6 +52,7 @@ const styles = StyleSheet.create({
     main_box: {
       width: '80%',
       height: '60%',
+      marginLeft: '8%',
     //   backgroundColor: 'lightblue',
       flex: 1,
       alignItems: 'center',
@@ -50,8 +68,8 @@ const styles = StyleSheet.create({
     },
     main_logo: {
         position: 'absolute',
-        left: '32%',
-        top: '20%',
+        left: '35%',
+        top: '15%',
         fontSize: '30px',
         fontWeight: 'bold',
     },
@@ -92,7 +110,7 @@ const styles = StyleSheet.create({
     },
     isMember_button: {
       color: '#ABC9FF',
-    }
+    },
   });
 
 export default withNavigation(Signup)
