@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet, Button } from 'react-native'
+import { View, Text, Image, StyleSheet, Button, ImageBackgroundComponent, TouchableOpacity } from 'react-native'
 import { withNavigation } from 'react-navigation'
 
 const Main = ({navigation}) => {
@@ -10,20 +10,22 @@ const Main = ({navigation}) => {
         <Text style={styles.text}>GGing Workout Helper</Text>
       </View>
       <View style={styles.box}>
-        <Button 
+        <TouchableOpacity 
+          style={styles.buttons}
           onPress={() =>{
             navigation.navigate('Login')
           }}
-          style={styles.login}
-          title='로그인'
-        />
-        <Button 
+        >
+          <Text style={styles.buttons_words}>로그인</Text>
+        </TouchableOpacity>
+        <TouchableOpacity 
+          style={styles.buttons}
           onPress={() =>{
             navigation.navigate('Signup')
           }}
-          style={styles.signup}
-          title='회원가입'
-        />
+        >
+          <Text style={styles.buttons_words}>회원가입</Text>
+        </TouchableOpacity>
       </View>
     </View>
   )
@@ -35,7 +37,7 @@ const styles = StyleSheet.create({
   },
   top_box: {
     width: "100%",
-    height: "70%",
+    height: "55%",
     // backgroundColor: "red",
     display: 'flex',
     alignItems: 'center',
@@ -55,8 +57,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
   },
-  signup: {
-    marginTop: "10%"
+  buttons: {
+    width: "80%",
+    height: "20%",
+    backgroundColor: '#ABC9FF',
+    borderRadius: "1000px",
+    textAlign: 'center',
+    marginTop: "5%"
+  },
+  buttons_words: {
+    textAlign: 'center',
+    lineHeight: "45%",
+    fontSize: "17%",
+    fontWeight: "600",
+
   }
 })
 
