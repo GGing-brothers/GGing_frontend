@@ -14,7 +14,7 @@ const Login = ({navigation}) => {
         <Text 
           style={styles.login_button}
           onPress={() =>{
-            navigation.navigate('Main')
+            navigation.navigate('Home')
           }}
         >
           로그인하기 
