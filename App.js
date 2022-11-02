@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SignupScreen from "./components/Signup";
 import LoginScreen from "./components/Login";
 import HomeScreen from "./components/Home";
-import CalScreen from "./components/CalendarPage";
+import CalScreen from "./components/Calendar";
 import MainScreen from "./components/Main";
 
 export default function App() {
