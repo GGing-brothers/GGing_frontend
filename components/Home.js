@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { withNavigation } from "react-navigation";
 
-const Main = ({ navigation }) => {
+const Home = ({ navigation }) => {
   return (
     <View style={styles.Container}>
       <View style={styles.top_box}>
@@ -80,4 +80,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withNavigation(Main);
+export default withNavigation(Home);
