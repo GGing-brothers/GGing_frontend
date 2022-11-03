@@ -15,7 +15,7 @@ import Icon from "react-native-vector-icons/AntDesign";
 const CalendarPage = ({ navigation }) => {
   return (
     <View style={styles.Container}>
-      <Icon
+      {/* <Icon
         size={20}
         color={"gray"}
         style={{
@@ -28,7 +28,7 @@ const CalendarPage = ({ navigation }) => {
         onPress={() => {
           navigation.navigate("Main");
         }}
-      />
+      /> */}
       <View style={styles.Monthly_title}>
         <Text style={styles.title}>이달의 목표</Text>
         <Text style={styles.daily}>매일 운동하기</Text>
