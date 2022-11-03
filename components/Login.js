@@ -1,16 +1,31 @@
-import React from "react";
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import React, { useState } from "react";
+import { Alert, Button, StyleSheet, Text, TextInput, View } from "react-native";
 import { withNavigation } from "react-navigation";
 
 const Login = ({ navigation }) => {
+  const [loginData, setLoginData] = useState({
+    id: "",
+    password: "",
+  });
   return (
     <View style={styles.main_box}>
       <View style={styles.main_login_box}>
         <Text style={styles.main_logo}>GWH</Text>
         <Text style={styles.login_text}>아이디</Text>
-        <TextInput style={styles.input_box} />
+        <TextInput
+          style={styles.input_box}
+          onChangeText={(text) => {
+            setLoginData({ ...loginData, id: text });
+          }}
+        />
         <Text style={styles.signup_text}>비밀번호</Text>
-        <TextInput style={styles.input_box} />
+        <TextInput
+          style={styles.input_box}
+          onChangeText={(text) => {
+            setLoginData({ ...loginData, password: text });
+            console.log(loginData);
+          }}
+        />
         <Text
           style={styles.login_button}
           onPress={() => {
