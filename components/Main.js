@@ -72,7 +72,10 @@ const Main = ({ navigation }) => {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttons}>
+        <TouchableOpacity
+          style={styles.buttons}
+          onPress={() => navigation.navigate("Workout")}
+        >
           <Image
             style={styles.icons}
             source={require("../assets/workout.png")}

@@ -8,15 +8,13 @@ import LoginScreen from "./components/Login";
 import HomeScreen from "./components/Home";
 import CalScreen from "./components/Calendar";
 import MainScreen from "./components/Main";
+import WorkoutScreen from "./components/Workout";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        // screenOptions={{ headerShown: false }}
-        initialRouteName="Home"
-      >
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           options={{ headerBackVisible: false, headerBackTitleVisible: false }}
           name="Login"
@@ -26,6 +24,11 @@ export default function App() {
           options={{ headerBackVisible: false, headerBackTitleVisible: false }}
           name="Signup"
           component={SignupScreen}
+        />
+        <Stack.Screen
+          // options={{ headerBackVisible: false, headerBackTitleVisible: false }}
+          name="Workout"
+          component={WorkoutScreen}
         />
         <Stack.Screen name="Calendar" component={CalScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
