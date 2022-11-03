@@ -8,19 +8,27 @@ import {
   ImageBackgroundComponent,
   TouchableOpacity,
 } from "react-native";
-import { withNavigation } from "react-navigation";
+import { withNavigation, withOrientation } from "react-navigation";
 import { Calendar } from "react-native-calendars";
 import Icon from "react-native-vector-icons/AntDesign";
 
 const CalendarPage = ({ navigation }) => {
   return (
     <View style={styles.Container}>
-      <Icon
+      {/* <Icon
+        size={20}
+        color={"gray"}
+        style={{
+          position: "absolute",
+          top: 30,
+          left: 2,
+          zIndex: 8,
+        }}
         name="arrowleft"
         onPress={() => {
           navigation.navigate("Main");
         }}
-      />
+      /> */}
       <View style={styles.Monthly_title}>
         <Text style={styles.title}>이달의 목표</Text>
         <Text style={styles.daily}>매일 운동하기</Text>
@@ -47,6 +55,8 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "white",
+    position: "relative",
   },
   Calendar: {
     width: "100%",
@@ -63,6 +73,14 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     borderRadius: "10px",
     paddingLeft: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   centerBox: {
     width: 330,

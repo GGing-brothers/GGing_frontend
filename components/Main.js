@@ -15,7 +15,7 @@ const Main = ({ navigation }) => {
     <View style={styles.Container}>
       <View style={styles.top_box}>
         <Image
-          // style={{ width: "40%", height: "10%" }}
+          style={{ marginTop: 50 }}
           source={require("../assets/logo.png")}
         />
       </View>
@@ -26,7 +26,7 @@ const Main = ({ navigation }) => {
             height: "14%",
             backgroundColor: "#ABC9FF",
             borderRadius: "20px",
-            marginTop: "5%",
+            marginTop: "10%",
             shadowColor: "#000",
             shadowOffset: {
               width: 0,
@@ -60,7 +60,7 @@ const Main = ({ navigation }) => {
             <View
               style={{
                 margin: "5%",
-                width: "90%",
+                width: "100%",
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
@@ -72,16 +72,35 @@ const Main = ({ navigation }) => {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttons}>
+        <TouchableOpacity
+          style={styles.buttons}
+          onPress={() => navigation.navigate("Workout")}
+        >
+          <Image
+            style={styles.icons}
+            source={require("../assets/workout.png")}
+          />
           <Text style={styles.buttons_words}>운동하기</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttons}>
+        <TouchableOpacity
+          style={styles.buttons}
+          onPress={() => navigation.navigate("Calendar")}
+        >
+          <Image style={styles.icons} source={require("../assets/plan.png")} />
           <Text style={styles.buttons_words}>운동일지</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.buttons}>
+          <Image
+            style={styles.icons}
+            source={require("../assets/community.png")}
+          />
           <Text style={styles.buttons_words}>커뮤니티</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.buttons}>
+          <Image
+            style={styles.icons}
+            source={require("../assets/hardware.png")}
+          />
           <Text style={styles.buttons_words}>하드웨어 설명</Text>
         </TouchableOpacity>
       </View>
@@ -92,7 +111,8 @@ const Main = ({ navigation }) => {
 const styles = StyleSheet.create({
   Container: {
     width: "100%",
-    // backgroundColor: "white",
+    height: "100%",
+    backgroundColor: "white",
   },
   top_box: {
     width: "100%",
@@ -108,6 +128,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttons: {
+    position: "relative",
     width: "80%",
     height: "14%",
     backgroundColor: "white",
@@ -123,9 +144,17 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
+  icons: {
+    width: 30,
+    height: 30,
+    position: "absolute",
+    top: "30%",
+    left: "11%",
+    zIndex: 10,
+  },
   buttons_words: {
     textAlign: "center",
-    lineHeight: "45%",
+    lineHeight: "65%",
     fontSize: "17%",
     fontWeight: "600",
   },
