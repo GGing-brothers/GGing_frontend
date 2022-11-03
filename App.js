@@ -9,6 +9,7 @@ import HomeScreen from "./components/Home";
 import CalScreen from "./components/Calendar";
 import MainScreen from "./components/Main";
 import WorkoutScreen from "./components/Workout";
+import InWorkOutScreen from "./components/InWorkOut";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -37,6 +38,7 @@ export default function App() {
           name="Main"
           component={MainScreen}
         />
+        <Stack.Screen name="InWorkOut" component={InWorkOutScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
