@@ -1,8 +1,18 @@
-import React, { useState } from "react";
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Alert, Button, StyleSheet, Text, TextInput, View } from "react-native";
 import { NavigationActions, withNavigation } from "react-navigation";
+import { users } from "../assets/export";
 
 const Signup = ({ navigation }) => {
+  const [userList, setUserList] = useState(users);
+
+  const check = (username) => {
+    for (let i = 0; i < userList.length; i++) {
+      if (userList[i].username === username) return false;
+    }
+    return true;
+  };
+
   const [signupData, setSignupData] = useState({
     id: "",
     password: "",
@@ -16,7 +26,6 @@ const Signup = ({ navigation }) => {
         <TextInput
           onChangeText={(e) => {
             setSignupData({ ...signupData, id: e });
-            console.log(signupData);
           }}
           style={styles.input_box}
         />
@@ -24,7 +33,6 @@ const Signup = ({ navigation }) => {
         <TextInput
           onChangeText={(e) => {
             setSignupData({ ...signupData, password: e });
-            console.log(signupData);
           }}
           style={styles.input_box}
         />
@@ -32,14 +40,17 @@ const Signup = ({ navigation }) => {
         <TextInput
           onChangeText={(e) => {
             setSignupData({ ...signupData, passwordCheck: e });
-            console.log(signupData);
           }}
           style={styles.input_box}
         />
         <Text
           style={styles.login_button}
-          onPress={() => {
-            navigation.navigate("Login");
+          onPress={(e) => {
+            // if (check(signupData.id)) {
+            if (signupData.password === signupData.passwordCheck)
+              navigation.navigate("Login");
+            else Alert("비밀번호를 다시 확인해주세요.");
+            //  else Alert("동일한 아이디가 이미 존재합니다.");
           }}
         >
           회원가입하기
