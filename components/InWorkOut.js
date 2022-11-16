@@ -9,10 +9,11 @@ import {
   TouchableOpacity,
   TextInput,
 } from "react-native";
+import CountDown from "react-native-countdown-component";
 import { withNavigation } from "react-navigation";
 
 const InWorkOut = ({ navigation, route }) => {
-  console.log(route.params.state.restTime);
+  const time = route.params.state.restTime;
   return (
     <View style={styles.Container}>
       <View style={styles.Monthly_title}>
@@ -29,7 +30,15 @@ const InWorkOut = ({ navigation, route }) => {
         </Text>
       </View>
       <View style={styles.Box}>
-        <Text style={{ color: "white" }}>{route.params.state.restTime}</Text>
+        {/* <Text style={{ color: "white" }}> */}
+        <CountDown
+          timeLabels={{ d: "", h: "", m: "", s: "" }}
+          size={20}
+          until={30}
+          digitStyle={{ backgroundColor: "#ABC9FF" }}
+          timeToShow={["S"]}
+        />
+        {/* </Text> */}
       </View>
       <View style={styles.fl_box}>
         <Text style={styles.question}>자세를 모르시나요?</Text>
@@ -65,6 +74,9 @@ const styles = StyleSheet.create({
     borderRadius: "100%",
     marginTop: 50,
     backgroundColor: "#ABC9FF",
+    display: "flex",
+    justifyContent: "center",
+    alignContent: "center",
   },
   fl_box: {
     width: "70%",
