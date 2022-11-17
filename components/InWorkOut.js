@@ -14,20 +14,43 @@ import { withNavigation } from "react-navigation";
 
 const InWorkOut = ({ navigation, route }) => {
   const time = route.params.state.restTime;
+  const [show, setShow] = useState(false);
   return (
     <View style={styles.Container}>
       <View style={styles.Monthly_title}>
         <Text style={styles.title}>이달의 목표</Text>
         <Text style={styles.daily}>매일 운동하기</Text>
       </View>
-      <View>
+      <View style={{ position: "relative" }}>
         <Image
           style={{ width: 140, height: 100, marginTop: 20 }}
           source={require("../assets/pushup.png")}
         />
-        <Text style={{ textAlign: "center", fontWeight: "600", marginTop: 10 }}>
+        <Text
+          style={{
+            textAlign: "center",
+            fontWeight: "600",
+          }}
+        >
           팔굽혀펴기
         </Text>
+        {show ? (
+          <Text
+            style={{
+              textAlign: "center",
+              fontWeight: "600",
+              marginTop: 5,
+              color: "red",
+              position: "absolute",
+              top: 140,
+              left: 15,
+            }}
+          >
+            자세를 고쳐주세요!
+          </Text>
+        ) : (
+          ""
+        )}
       </View>
       <View style={styles.Box}>
         {/* <Text style={{ color: "white" }}> */}
@@ -44,6 +67,16 @@ const InWorkOut = ({ navigation, route }) => {
         <Text style={styles.question}>자세를 모르시나요?</Text>
         <Text style={styles.solution}>자세 보기</Text>
       </View>
+      <TouchableOpacity
+        onPress={() => {
+          setShow(!show);
+        }}
+        style={{
+          // backgroundColor: "red",
+          width: 500,
+          height: 100,
+        }}
+      ></TouchableOpacity>
     </View>
   );
 };
