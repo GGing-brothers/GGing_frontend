@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -11,6 +12,21 @@ import {
 import { withNavigation } from "react-navigation";
 
 const Main = ({ navigation }) => {
+  const fetchData = async () => {
+    try {
+      // GET 요청을 보냄
+      const response = await axios.get("http://localhost:3000/api/data/12");
+      // 결과 출력
+      console.log(response.data);
+    } catch (error) {
+      // 에러 처리
+      console.error(error);
+    }
+  };
+  // API 요청 함수 호출
+  fetchData();
+  const [data, setData] = useState("");
+  console.log("hello");
   return (
     <View style={styles.Container}>
       <View style={styles.top_box}>
@@ -36,6 +52,15 @@ const Main = ({ navigation }) => {
             shadowRadius: 3.84,
             elevation: 5,
           }}
+          onPress={() => {
+            axios
+              .get("127.0.0.1:3000/api/data/12")
+              .then((res) => {
+                console.log(res);
+                setData(res.data);
+              })
+              .catch((err) => console.log(err));
+          }}
         >
           <View
             style={{
@@ -56,6 +81,7 @@ const Main = ({ navigation }) => {
               }}
             >
               이달의 목표
+              {data}
             </Text>
             <View
               style={{
@@ -132,7 +158,7 @@ const styles = StyleSheet.create({
     width: "80%",
     height: "14%",
     backgroundColor: "white",
-    borderRadius: "20px",
+    borderRadius: 20,
     textAlign: "center",
     marginTop: "5%",
     shadowColor: "#000",
@@ -155,7 +181,7 @@ const styles = StyleSheet.create({
   buttons_words: {
     textAlign: "center",
     lineHeight: "65%",
-    fontSize: "17%",
+    fontSize: 17,
     fontWeight: "600",
   },
 });

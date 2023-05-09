@@ -10,9 +10,11 @@ import CalScreen from "./components/Calendar";
 import MainScreen from "./components/Main";
 import WorkoutScreen from "./components/Workout";
 import InWorkOutScreen from "./components/InWorkOut";
+import axios from "axios";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
